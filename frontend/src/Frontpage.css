@@ -1,0 +1,109 @@
+/* main {
+    display: grid;
+    grid-template-rows: 1fr 7fr;
+} */
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    /* font-size: 62.5%; to make the default px to 10 from 16*/
+    }
+  
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+nav {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    /* flex-flow: row wrap; */
+    text-align: center;
+    align-items: center;
+    height: 10rem;
+    border: 0.5px solid rgba(47, 3, 3, 0.1);
+    position: -webkit-sticky;
+    position: sticky;
+    
+  }
+  
+  nav a {
+    width: 30rem;
+    height: auto;
+  }
+
+  nav a:hover{
+    opacity: 0.7;
+    font-weight: 700;  
+    
+}
+
+  nav li {
+    width: auto;
+    line-height: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    flex: 1;
+    margin: 0 1rem;
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 10rem;
+    border: 1px solid rgb(224, 220, 220);
+    transition: opacity 0.15s, box-shadow 0.2s;
+  }
+
+nav li:hover{
+    box-shadow: 8px 8px 10px rgba(0,0,0,0.15);
+    opacity: 0.7;
+    font-weight: 900;  
+}
+nav li:active{
+    opacity: 0.4;
+    font-weight: 1000;
+    box-shadow : inset 1px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+nav img {
+    height: 8rem;
+}
+
+section {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    height: 100vh;
+    /* overflow: auto; */
+}
+
+section article{
+    width: 30vw;
+    font-size: 3rem;
+}
+
+section article h2:hover {
+    text-shadow: 5px 5px 4px rgba(28,110,164,0.9);
+    font-weight: 900;
+}
+
+section article p {
+    margin-top: 10rem;
+    padding: 2rem;
+}
+
+section img {
+   flex: 1;
+   /* height: 120rem; */
+   object-fit: contain;
+   /* width: auto; */
+   height: 100%;
+   /*  max-width: 100%;
+   max-height: 100%;
+   margin-top: 50rem; */ 
+    /* height: 600px; */
+    border: 1px solid red;
+}

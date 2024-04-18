@@ -1,0 +1,39 @@
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  /* font-size: 62.5%; to make the default px to 10 from 16*/
+  }
+
+*, *::before, *::after {
+    box-sizing: inherit;
+  }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 3rem;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+nav {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+nav li {
+  border: 3px solid yellow;
+  width: 10rem;
+  background-color: red;
+  text-align: center;
+}
