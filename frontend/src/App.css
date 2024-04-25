@@ -13,24 +13,31 @@ main {
   display: flex;
   flex-direction: column;
   place-items: center;
+  height: 100vh;
 }
 
 /* App.css */
 
 /* Apply styles to the form */
-.input-group {
+/* .input-group {
   margin-top: 2rem;
-}
+} */
 
 /* Style input fields */
 .input-group input {
   width: 100%;
   padding: 1rem;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
   font-size: inherit;
   border: 1px solid #ccc;
   border-radius: 5px;
   transition: border-color 0.3s ease;
+  margin-top: 0;
+}
+
+.input-group label {
+  margin-bottom: -3rem;
+  opacity: 1;
 }
 
 .input-group input:focus {
@@ -57,18 +64,18 @@ main {
 }
 
 /* Style the link to register */
-section {
-  margin-top: 2rem;
+.register {
+  margin-top: 20rem;
 }
 
-section a {
+.register a {
   font-size: 2rem;
   color: #007bff;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-section a:hover {
+.register a:hover {
   color: #0056b3;
   text-decoration: underline;
 }

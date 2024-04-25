@@ -1,0 +1,241 @@
+body {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+
+.header-button {
+    font-family:'Noto Sans';
+    font-size: 15px;
+    font-weight: 500;
+    background-color: rgb(255, 255, 255);
+    color: rgb(37, 36, 36);
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 20px;
+    margin-left:40px;
+    margin-right:4px;
+    cursor: pointer;
+    transition: opacity 0.15s, box-shadow 0.2s;
+}
+.header-button:hover{
+    box-shadow: 8px 8px 10px rgba(0,0,0,0.15);
+    opacity: 0.7;
+    font-weight: 700;  
+}
+.header-button:active{
+    opacity: 0.4;
+    font-weight: 700;
+    box-shadow : inset 1px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+
+.header-button-link {
+    font-family:'Noto Sans';
+    font-size: 15px;
+    font-weight: 500;
+    background-color: rgb(255, 255, 255);
+    color: rgb(37, 36, 36);
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 20px;
+    margin-left:40px;
+    margin-right:4px;
+    cursor: pointer;
+    transition: opacity 0.15s, box-shadow 0.2s;
+}
+
+.header-button-link:hover{
+    box-shadow: 8px 8px 10px rgba(0,0,0,0.15);
+    opacity: 0.7;
+    font-weight: 700;
+}
+.header-button-link:active{
+    opacity: 0.4;
+    font-weight: 700;
+    box-shadow : inset 1px 2px 3px rgba(0, 0, 0, 0.3);
+}
+.header-button-link:hover {
+    box-shadow: 8px 8px 10px rgba(0,0,0,0.15);
+    opacity: 0.7;
+    font-weight: 700;
+}
+.popup{
+    z-index: 1;
+    opacity: 0;
+    height: 500px;
+    background-color: aquamarine;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.header-button-link:hover .popup{
+
+    opacity: 1;
+
+}
+
+.sub-button {
+    font-family:Arial;
+    font-size: 15px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 2px;
+    margin-left:20px;
+    margin-right:4px;
+    cursor: pointer;
+    transition: opacity 0.15s;
+}
+.sub-button:hover{
+    opacity: 0.7;
+}
+.sub-button:active{
+    opacity: 0.4;
+}
+
+.search-glass{
+    height: 16px;
+    cursor: pointer;
+    transition: height 0.3s;
+}
+
+.search-glass:hover{
+    height:22px;
+}
+
+
+.join-button {
+    font-size: 20px;
+    background-color: white;
+    border-color: rgb(0, 102, 255);
+    height: 60px;
+    width: 240px;
+    border-style: solid;
+    border-width: 1px;
+    color: rgb(55, 0, 255);
+    border-radius: 2px;
+    cursor: pointer;
+    border-radius: 60px;
+    margin-top: 50px;
+    margin-left:0px;
+    margin-right:4px;
+    text-align: center;
+    margin-left: 120px;
+    transition: font-weight 0.2s, background-color 0.6s, color 0.6s;
+}
+.join-button:hover{
+    background-color: rgb(0, 102, 255);
+    color: white;
+    font-weight: 700;
+    
+    box-shadow : 1px 2px 3px rgba(0, 102, 255, 0.3);
+    transition: background-color 0.6s, color 0.6s;
+}
+.join-button:active{
+    opacity: 0.7;
+}
+.tweet-button {
+    background-color: rgb(2, 137, 255);
+    border: none;
+    height: 36px;
+    width: 70px;
+    border-style: solid;
+    border-width: 1px;
+    color: rgb(255, 255, 255);
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    transition: box-shadow 0.15s;
+    margin-left:4px;
+    margin-right:4px;
+}
+.tweet-button:hover{
+    box-shadow: 8px 8px 10px rgba(0,0,0,0.15);
+}
+.tweet-button:active{
+    opacity: 0.7;
+}
+.Add-to-cart-button {
+    background-color: rgba(228, 228, 10, 0.966);
+    border: none;
+    height: 36px;
+    width: 140px;
+    position:	absolute;
+    top: 50px;
+    left: 9px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: background-color 0.15s;
+}
+.Add-to-cart-button:hover{
+    background-color: rgb(196, 196, 17);
+}
+.shadow-button {
+background-color: green;
+color: white;
+border: none;
+font-size: 18px;
+padding-top: 8px;
+padding-bottom: 8px;
+padding-left: 16px;
+padding-right: 16px;
+cursor: pointer;
+box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+
+}
+
+.shadow-button:active {
+margin-top: 3px;
+margin-left: 3px;
+box-shadow: none;
+}
+
+
+.background{
+    padding-top: 50px;
+    width: 300px;
+    object-fit: contain;
+    border-width: 3px;
+    display: block;
+}
+.background2{
+    height: 200px;
+    width: 300px;
+    object-fit: contain;
+    border-width: 3px;
+    display: inline-block;
+    box-shadow : inset 1px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+
+.div-example {
+    width: 200px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.red-square{
+    border-width: 1px;
+    border-style: solid;
+    height: 300px;
+    width: 200px;
+    border-radius: 2px;
+    padding-left: 15px;
+    padding-bottom: 20px;
+    display: inline-block;
+}

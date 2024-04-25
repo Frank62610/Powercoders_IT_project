@@ -1,0 +1,109 @@
+/* Container styles */
+section {
+    display: flex;
+    flex-direction: column;
+    max-width: 60vw;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Register section */
+  .register-section {
+    margin-bottom: 20px;
+  }
+  
+  /* Success message styles */
+  h1 {
+    color: #28a745;
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+  
+  /* Error message styles */
+  .errmsg {
+    color: #dc3545;
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+  
+  /* Form styles */
+  form {
+    margin-top: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+    font-size: 20px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 18px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Link styles */
+  .line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Icon styles */
+  .valid,
+  .invalid {
+    margin-left: 5px;
+  }
+  
+  .hide {
+    display: none;
+  }
+  
+  .instructions {
+    font-size: 16px;
+    color: #666;
+    margin-top: 8px;
+  }
+  

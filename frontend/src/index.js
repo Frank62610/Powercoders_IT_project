@@ -6,7 +6,10 @@ import { BrowserRouter as RouterProvider, Route, Routes, Switch } from 'react-ro
 import App from './App';
 import Register from './Register.js';
 import reportWebVitals from './reportWebVitals';
-import Frontpage from './Frontpage.js';
+// import Frontpage from './Frontpage.js';
+import { Chart } from './stock chart/chart.js';
+import { GenQuiz } from './Quiz/quiz.js';
+
 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet"></link>
 
@@ -18,7 +21,9 @@ root.render(
       {/* Use Route components without Switch */}
         <Route exact path="/" element={<App />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/frontpage" element={<Frontpage />} />
+        {/* <Route path="/frontpage" element={<Frontpage />} /> */}
+        <Route path="/chart" element={<Chart />} />
+        <Route path="/quiz" element={<GenQuiz />} />
       </Routes>
     </RouterProvider>
     

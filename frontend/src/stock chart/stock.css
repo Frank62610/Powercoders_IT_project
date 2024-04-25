@@ -1,0 +1,163 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.Intro_box{
+  width: 600px;
+  margin: 0 auto;
+}
+
+.googleMapLink{
+  margin-left: 10px;
+  font-size: 13px;
+}
+
+.topHeader{
+  background-color: red;
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.travelImg{
+  width: 140px;
+  margin:10px;
+  border-radius: 10px;
+}
+
+
+.contentDiv{
+  display: flex;
+  margin: 10px;
+  margin-left: 20px;
+  
+}
+
+.icon{
+  width: 30px;
+  margin-right: 10px;
+}
+
+.googleMapLink{
+  color: grey;
+}
+
+.divBoxes{
+  width: 150px;
+  height: 150px;
+  display: inline-block;
+  margin: 3px;
+  border: 3px solid blue
+  
+}
+
+.divJokes{
+  display: inline-block;
+}
+
+.diceBoxes{
+  display: grid;
+  grid-template: auto auto / repeat(5, 1fr);
+  margin: 2px;
+  align-items: center;
+  background-color:rgb(204, 209, 213);
+  border: 2px solid rgb(63, 9, 9);
+  justify-content: center;
+  align-items: center;
+}
+
+.diceBox{
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 30px;
+  margin: 50px 25px 50px 25px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  justify-content: center;
+  align-items: center;
+  padding: 3px;
+}
+
+.diceButton{
+  margin: 10px;
+  text-align: center;
+  
+}
+
+
+.questionForm{
+  display:inline-flex;
+  border-radius: 15px;
+
+}
+
+.questionForm input {
+  display: none;
+  
+}
+
+.questionForm label {
+  margin: 5px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-family: sans-serif;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  cursor: pointer;
+  border: 2px solid grey
+
+}
+
+
+.startQuiz {
+  font-family:'Noto Sans';
+    font-size: 30px;
+    font-weight: 500;
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 20px;
+    margin-left:40px;
+    margin-right:4px;
+    cursor: pointer;
+    margin-top: 30px;
+    
+}
+
+.startQuiz:hover{
+  box-shadow: 8px 8px 10px rgba(0,0,0,0.15);
+  opacity: 0.7;
+  font-weight: 700;  
+}
+.startQuiz:active{
+  opacity: 0.4;
+  font-weight: 700;
+  box-shadow : inset 1px 2px 3px rgba(0, 0, 0, 0.3);
+}
+.mainDiv{
+  text-align: center;
+  max-width: 800px;
+
+}
+
+.eachQuestion{
+  outline: 0.2px dotted grey;
+  outline-offset: 10px;
+  border-radius: 15px;
+}

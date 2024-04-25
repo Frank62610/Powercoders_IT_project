@@ -22,6 +22,7 @@ nav {
     padding: 0;
     margin: 0;
     display: flex;
+    width: 95vw;
     /* flex-flow: row wrap; */
     text-align: center;
     align-items: center;
@@ -83,6 +84,7 @@ section {
 section article{
     width: 30vw;
     font-size: 3rem;
+    padding: 2rem;
 }
 
 section article h2:hover {

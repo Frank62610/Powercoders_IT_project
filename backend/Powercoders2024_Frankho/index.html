@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Portfolio_FrankHo</title>
+        <link rel="stylesheet" href="./CSS/flexbox.css">
+        <link rel="stylesheet" href="./CSS/website.css">
+        <link rel="stylesheet" href="./CSS/grid.css">
+        <link rel="stylesheet" href="./CSS/search-community.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <script src="script.js"></script>
+
+        <div class="popup">linking you to Google...</div>
+
+        <div id="flexbox" class="flexbox">
+            <div class="flex-box1">
+                <img class="logo" src="Logo.jpg" >
+            </div>
+            <div class="flex-box2">
+                <button class="header-button" 
+                    onmouseover="changeimage6()"
+                    onclick="window.location.href='#grid';">HOME</button>
+                <button class="header-button" 
+                    onmouseover="changeimage()" 
+                    onclick="window.location.href='http://localhost:3000/chart';">STOCK CHART</button>
+                <button class="header-button" 
+                    onmouseover="changeimage1()"
+                    onclick="window.location.href='http://localhost:3000/quiz';">QUIZ GAME</button>
+                <button class="header-button" 
+                    onmouseover="changeimage2()">ABOUT</button>
+                <button class="header-button-link" 
+                    onmouseover="changeimage3()"
+                    onclick="changeimage4()">LINK</button>
+            </div>
+            <div class="flex-box3">
+                <img class="search-glass" src="icons.png" onclick="window.location.href='#search-bar';">
+            </div>
+        </div>
+
+
+        <div id="grid" class="grid1">
+            <div>
+                <p class="font-header"> ALL IN ONE SITE</p>
+                <p class="font-content"> Welcome to our comprehensive platform, where we cater to your every need. Our all-in-one service hub brings seamlessly merging the convenience of shopping with the enriching experience of learning. </p>
+                <button class="join-button">
+                    CONNECT WITH US
+                </button>
+            </div>
+            <div class="grid1-right"> 
+                <img class=grid-image id="image" src="Pictures/Air Jordan.jpg"> 
+            </div>
+        </div>
+
+
+    <hr style="opacity: 0.1;">    
+
+        <div id="grid2" class="grid2">
+            <div > 
+                <p class="service-title">All in one service</p>
+                <p class="service-content">Embrace the unexpected, for within chaos lies the beauty of undiscovered possibilities.</p>
+            </div>
+            <div class="grid3">
+                <div class="grid-service"> 
+                    <div class="grid-service-text">
+                        <p class="service-text">Travel</p>
+                    </div>
+                </div>
+                <div class="inside-grid"> 
+                    <div class="grid-learn"> 
+                        <div class="grid-learn-text">
+                            <p class="learn-text">Learn</p>
+                        </div>
+                    </div>
+                    <div class="grid-food"> 
+                        <div class="grid-food-text">
+                            <p class="food-text">Food</p>
+                        </div>
+                    </div>
+                    <div class="grid-shop"> 
+                        <div class="grid-shop-text">
+                            <p class="shop-text">Shop</p>
+                        </div>
+                    </div>
+                    <div class="grid-sports"> 
+                        <div class="grid-sports-text">
+                            <p class="sports-text">Sports</p>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </div>
+
+        <hr style="opacity: 0.1; margin-top: 50px;">    
+
+
+        <div class="Reviews">
+            <div class="searching" id="search-bar">
+              <input  class="search-bar" type="text" placeholder="Search anything here!">
+              <button class="search-button">
+                <img class="search-icon" src="Pictures/svg/search.svg">
+              </button>
+            </div>
+            <div class="community-header" id="community">
+              <p class="community-text"> Community</p>
+            </div>
+            <div class="profile">
+              <img class="profile-picture" src="Pictures/cat1.png">
+              <p class="name">
+                Rika
+              </p>
+              <p class="mutual-friends">
+                Hobbies: Hiking, Reading
+              </p>
+              <button class="add-friend-button">
+                Add friend
+              </button>
+            </div>
+            <div class="profile">
+              <img class="profile-picture" src="Pictures/cat2.jpg">
+              <p class="name">
+                Mimi
+              </p>
+              <p class="mutual-friends">
+                Hobbies: Eating, Sleeping
+              </p>
+              <button class="add-friend-button">
+                Add friend
+              </button>
+            </div>
+            <div class="profile">
+              <img class="profile-picture" src="Pictures/shiba.jpg">
+              <p class="name">
+                Stephen
+              </p>
+              <p class="mutual-friends">
+                Hobbies: Cooking, Dancing
+              </p>
+              <button class="add-friend-button">
+                Add friend
+              </button>
+            </div>
+          </div>
+<div class="flexbox" style="margin-top: 300px;">
+    <div></div>
+    <div>
+        <p style="font-weight: 700; margin-left: 150px">Designed by Frank</p>
+        <h5 id="time"></h5>
+        <script>    
+            document.getElementById("time").innerHTML=new Date;
+        </script>
+    </div>
+    <div></div>
+</div>
+    </body>
+</html>
+
+

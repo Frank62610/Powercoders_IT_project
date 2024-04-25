@@ -80,6 +80,7 @@ export async function getCred(username, password) {
         const [rows] = await pool.query(`
         SELECT * FROM cred WHERE username = 
             '${username}' and password = '${password}'`)
+    // Intentionally making it attackable to sql injection
     // const [rows] = await pool.query(
     //   'SELECT * FROM cred WHERE username = ?',
     //   [username]
