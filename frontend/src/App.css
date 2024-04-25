@@ -8,12 +8,13 @@ html {
     box-sizing: inherit;
   }
 
-main {
+.displayAll {
   font-size: 3rem;
   display: flex;
   flex-direction: column;
   place-items: center;
   height: 100vh;
+  margin-top: 15vh;
 }
 
 /* App.css */

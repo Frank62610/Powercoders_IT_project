@@ -161,3 +161,42 @@ code {
   outline-offset: 10px;
   border-radius: 15px;
 }
+
+.choose {
+  font-size: 16px; /* Adjust font size as needed */
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease; /* Add transition effect for color change */
+}
+
+/* Hover effect for label */
+.choose:hover {
+  color: #666; /* Change color on hover */
+}
+
+/* Focus effect for label */
+.choose:focus {
+  outline: 1px solid #666; /* Add outline on focus */
+}
+
+.radioInput{
+/* Create a custom radio button */
+width: 20px;
+height: 20px;
+border: 2px solid #333;
+border-radius: 50%;
+outline: none;
+cursor: pointer;
+margin-right: 8px; /* Adjust margin as needed */
+}
+
+.chartOption{
+  display: flex;
+  flex-direction: row;
+}
+
+.chart{
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}

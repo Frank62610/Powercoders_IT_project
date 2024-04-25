@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { EachQuestion } from './EachQuestion';
 import './quiz.css'
+import {jwtDecode } from 'jwt-decode';
+import Cookies from 'js-cookie';
 
 export function GenQuiz(){
 
@@ -9,29 +11,57 @@ export function GenQuiz(){
     const [answers, setAnswers] = useState([])
     const [finish, setFinish] = useState(false)
     const [rounds, setRounds] = useState(0)
+    const [username, setUsername] = useState('')
  
 
     useEffect(function() {
-        fetch(`https://opentdb.com/api.php?amount=5&type=multiple`)
-            .then(res => res.json())
-            .then(data => {
-                // Check if the data is an array before setting the state
-                if (Array.isArray(data.results)) {
-                    setQuizData(data.results);
-                    const answersList = data.results.map(data => ({ question: data.question }));
-                    setAnswers(answersList);
-                } else {
-                    console.error("Quiz data is not in the expected format:", data);
-                }
-            })
-            .catch(error => {
-                console.error("Error fetching quiz data:", error);
-            });
-
-
+        try {
+            fetch(`https://opentdb.com/api.php?amount=5&type=multiple`)
+                .then(res => res.json())
+                .then(data => {
+                    // Check if the data is an array before setting the state
+                    if (Array.isArray(data.results)) {
+                        setQuizData(data.results);
+                        const answersList = data.results.map(data => ({ question: data.question }));
+                        setAnswers(answersList);
+                    } else {
+                        console.error("Quiz data is not in the expected format:", data);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching quiz data:", error);
+                });
+        } catch (error) {
+            console.error("An error occurred during the fetch operation:", error);
+        }
     }, [rounds]);
 
-
+    useEffect(() => {
+        // Function to get and decode the JWT token from cookies
+        const decodeTokenFromCookie = () => {
+            // Get the JWT token from cookies
+            let token = Cookies.get('Token');
+            console.log("this is the token" , token)
+            if (token) {
+                try {
+                    // Decode the JWT token to extract the username
+                    const decodedToken = jwtDecode(token);
+                    console.log(decodedToken);
+                    // Extract the username from the decoded token
+                    const { username } = decodedToken;
+                    // Update the state with the username
+                    setUsername(username);
+                } catch (error) {
+                    console.error('Error decoding JWT token:', error);
+                }
+            } else {
+                console.log('JWT token not found in cookies.');
+            }
+        };
+    
+        // Call the function to decode the token when the component mounts
+        decodeTokenFromCookie();
+    }, []);
     
     const allQuizBoxes = quizData.map( data => 
         (

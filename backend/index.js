@@ -9,13 +9,14 @@ import { fileURLToPath } from 'url';
 import cookieParser from 'cookie-parser';
 
 
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
 const port = 8080;
 
+
+// app.use for middleware
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, './Powercoders2024_Frankho')));
 app.use(bodyParser.json());
@@ -28,7 +29,7 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-const JWT_SECRET = 'password123' //change the secret key easy to break for hacking;
+const JWT_SECRET = 'password123' //simple secret key is easy to brute-force;
 
 app.post("/api/v1/users/login", async (req, res) => {
   const { username, password } = req.body;
@@ -41,7 +42,7 @@ app.post("/api/v1/users/login", async (req, res) => {
     } else {
       const token = jwt.sign({ username: cred[0].username }, JWT_SECRET, { expiresIn: '1h' });
       res.cookie('Token',token, {maxAge: 3600000, httpOnly: true});
-      res.status(200).json({ message: "Login successful", token });
+      res.status(200).json({ message: "Login successful", token, username: cred[0].username });
       // res.redirect('/frontpage');
       console.log(token)
     }
@@ -72,14 +73,19 @@ app.post("/api/v1/users/register", async (req, res) => {
   }
 });
 
-app.get('/index.html', (req, res) => {
+app.get('^/$|/index(.html)?', (req, res) => {
   // res.sendFile(path.join(__dirname, './Powercoders2024_Frankho', 'index.html'))
   res.sendFile("./Powercoders2024_Frankho/index.html", { root: __dirname})
 })
 
-app.get('/', (req, res) => {
+app.get('/oldpage(.html)?',(req, res) => {
+  res.redirect(301, '/backend/Powercoders2024_Frankho/index.html') 
+  // 302 by default
+})
+
+app.get('/qweqwe', (req, res) => {
   // res.sendFile(path.join(__dirname, './Powercoders2024_Frankho', 'index.html'))
-  res.sendFile("./../frontend/public/", { root: __dirname})
+  res.sendFile(path.join(__dirname, '..', 'frontend', 'src', 'Frontpage.js'))
 })
 
 
@@ -87,9 +93,14 @@ app.get("/frontpage", authenticateToken, (req, res) => {
   res.sendFile("./Powercoders2024_Frankho/index.html", { root: __dirname})
 });
 
-app.get("/stock", (req, res) => {
-  res.sendFile("./stock chart/chart.html", { root: __dirname})
-})
+app.get("/quiz", authenticateToken, (req, res, next) => {
+  console.log("sending you to QUIZ GAME");
+  // Call next() only if you have additional middleware or route handler
+  next();
+}, (req, res) => {
+  res.redirect('http://localhost:3000/quiz'); // Redirect to the quiz URL
+});
+
 
 function authenticateToken(req, res, next) {
   const token = req.cookies.Token; // Assuming the token is stored in a cookie named "Token"

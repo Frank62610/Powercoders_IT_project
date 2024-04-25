@@ -129,16 +129,17 @@ code {
     font-weight: 500;
     border: none;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 1rem;
     padding-left: 15px;
     padding-right: 15px;
     border-radius: 20px;
-    margin-left:40px;
+    margin: 10vh 10vw;
+    /* margin-left:40px;
     margin-right:4px;
-    cursor: pointer;
     margin-top: 10vh;
+    margin-bottom: 10vh; */
     border: 1px solid silver;
-    
+    cursor: pointer;
 }
 
 .startQuiz:hover{
@@ -157,7 +158,7 @@ code {
   display: flex;
   flex-wrap: wrap;
   place-items: center;
-
+ 
 }
 
 .mainDiv p {
@@ -175,4 +176,21 @@ code {
   display: flex;
   flex-direction: column;
   place-items: center;
+}
+
+@media only screen and (min-width: 701px) and (max-width: 1300px) {
+  .eachQuestion{
+    width: 35vw;
+  }
+}
+
+
+@media only screen and (max-width: 700px) {
+  .mainDiv{
+    flex-direction: column;
+  }
+
+  .eachQuestion{
+    width: 90vw;
+  }
 }

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as RouterProvider, Route, Routes, Switch } from 'react-router-dom';
+import { BrowserRouter as RouterProvider, Route, Routes } from 'react-router-dom';
 import App from './App';
 import Register from './Register.js';
 import reportWebVitals from './reportWebVitals';

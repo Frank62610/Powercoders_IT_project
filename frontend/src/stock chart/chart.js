@@ -12,21 +12,27 @@ export function Chart(){
     
 
     useEffect(function (){
-        let url = `https://www.alphavantage.co/query?function=${option}&symbol=${symbol}&interval=60min&apikey=HGJWFG4N8AQ66ICD`
-        console.log(url)
-
-        console.log(option === options[2] ? "Weekly Time Series" 
-        : option === options[1] ? "Time Series (60min)" : "Time Series (Daily)")
-
-        fetch(url)
-            .then(res => res.json())
-            .then(data => {setData(data[option === options[2] ? "Weekly Time Series" 
-            : option === options[1] ? "Time Series (60min)" : "Time Series (Daily)"])
-                            console.log(data) }                
-            )
-
-        console.log(data)
-        
+        try {
+            let url = `https://www.alphavantage.co/query?function=${option}&symbol=${symbol}&interval=60min&apikey=HGJWFG4N8AQ66ICD`
+            console.log(url)
+    
+            console.log(option === options[2] ? "Weekly Time Series" 
+            : option === options[1] ? "Time Series (60min)" : "Time Series (Daily)")
+    
+            fetch(url)
+                .then(res => res.json())
+                .then(data => {setData(data[option === options[2] ? "Weekly Time Series" 
+                : option === options[1] ? "Time Series (60min)" : "Time Series (Daily)"])
+                                console.log(data) }                
+                )
+                .catch(error => {
+                    console.error("Error fetching data:", error);
+                });
+            
+            console.log(data)
+        } catch (error) {
+            console.error("An error occurred during the fetch operation:", error);
+        }
     }, [symbol])
 
     
@@ -47,15 +53,17 @@ export function Chart(){
 
     const genOptions = options.map(element => {
         return (
-            <div>
-                <input type='radio' id={element}
+            <div className='chartOption'>
+                <input className='radioInput'
+                    type='radio' id={element}
                     name="choice" value={element}
                     checked={option === element} 
                     onChange={() => {
                         setOption(element)
                     }}
                 />
-                <label htmlFor={element} className={element}>
+                <label className='choose'
+                    htmlFor={element}>
                     {element}
                 </label>
             </div>
@@ -63,7 +71,7 @@ export function Chart(){
     })
 
     return (
-        <div>
+        <div className='chart'>
             <h1>{symbol} Stock Chart</h1>
             {genOptions}
             {Object.keys(data).length > 0 ? (

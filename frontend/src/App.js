@@ -1,7 +1,7 @@
 // frontend/App.js
 import React, { useState } from 'react';
 // import axios from 'axios';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import './App.css';
 // import jwtDecode from 'jwt-decode';
 
@@ -14,7 +14,6 @@ function App() {
 
   const handleLogin = async () => {
     try {
-      console.log(`User not found or incorrect credentials`);
       const response = await fetch('http://localhost:3000/api/v1/users/login', {
         method: 'POST',
         headers: {
@@ -29,8 +28,13 @@ function App() {
       const data = await response.json();
       console.log(data)
       if (response.ok) {
-        // localStorage.setItem('token', data.token);
+        // console.log(data)
+        sessionStorage.setItem('username', data.username);
+        setMessage(data.username)
         window.location.href = 'http://localhost:8080/frontpage';
+        // const redirecting = await fetch ('http://localhost:3000/frontpage',{
+        // method: "GET"
+        // })
       // } else if (response.status === 404) {
       } else if (data.error){
         setMessage(data.error);
@@ -68,7 +72,7 @@ function App() {
   // };
 
   return (
-    <main>
+    <main className='displayAll'>
       <div><h3>{message}</h3></div>
       <form className="input-group">
         <label htmlFor="Username">Username:</label><br />
