@@ -10,6 +10,7 @@ function App() {
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   // const history = useNavigate();
+  // const [theme, setTheme] = useState('light');
 
 
   const handleLogin = async () => {
@@ -46,7 +47,9 @@ function App() {
     }
   };
 
-
+  // const toggleTheme = () => {
+  //   setTheme(theme === 'light' ? 'dark' : 'light');
+  // };
   // const handleLogin = async () => {
     
   //   try {
@@ -95,6 +98,9 @@ function App() {
         {/* Add a link to the registration page */}
         <a href="http://localhost:3000/register">Without an Account? Go register</a>
       </section>
+
+
+      {/* <button onClick={toggleTheme}>Toggle Theme</button> */}
     </main>
   );
 }

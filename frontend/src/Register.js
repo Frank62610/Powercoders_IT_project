@@ -5,7 +5,7 @@ import axios from 'axios';
 import './Register.css'
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{4,30}$/;
-const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{6,24}$/;
+const PWD_REGEX = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{6,24}$/;
 
 
 const Register = () => {
@@ -75,9 +75,14 @@ const Register = () => {
         } catch (err) {
             if (!err?.response) {
                 setErrMsg('No Server Response');
-            } else if (err.response?.status === 409) {
-                setErrMsg('Username Taken');
-            } else {
+            } 
+            // else if (err.response?.status === 409) {
+            //     setErrMsg('Username Taken');
+            // } 
+            else if (err.response?.status === 400) {
+                setErrMsg('Username already exists')
+            }
+              else {
                 setErrMsg('Registration Failed')
             }
             errRef.current.focus();
@@ -94,7 +99,7 @@ const Register = () => {
                     </p>
                 </section>
             ) : (
-                <section>
+                <section className="register">
                     <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
                     <h1>Register</h1>
                     <form onSubmit={handleSubmit}>

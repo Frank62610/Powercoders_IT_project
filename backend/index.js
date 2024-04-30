@@ -3,7 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import jwt from 'jsonwebtoken';
-import { getCred, createUser } from './database.js';
+import { getCred, createUser, checkCred, checkProducts, sortProducts } from './database.js';
 import path from 'path'
 import { fileURLToPath } from 'url';
 import cookieParser from 'cookie-parser';
@@ -31,6 +31,30 @@ app.use(cors(corsOptions));
 
 const JWT_SECRET = 'password123' //simple secret key is easy to brute-force;
 
+
+
+
+
+app.get('/api/v1/products', async (req, res) => {
+  let rating = req.query.rating;
+  console.log(rating)
+  let products;
+  rating ?  products = await sortProducts(rating) 
+    :  products = await checkProducts();
+//  console.log(products);
+ try {
+  if (products){
+    res.json(products);
+    // console.log(res)
+        } else {
+          res.status(404).json({ error: "No products found" });
+        }}
+ catch (error) {
+  console.error('Error:', error);
+  res.status(500).json({ error: "Internal server error" });
+ }
+})
+
 app.post("/api/v1/users/login", async (req, res) => {
   const { username, password } = req.body;
 
@@ -57,9 +81,10 @@ app.post("/api/v1/users/register", async (req, res) => {
   console.log("Recieved POST request from register")
   try {
     // Check if the username already exists
-    const existingUser = await getCred(username);
+    const existingUser = await checkCred(username);
     console.log(existingUser)
     if (existingUser.length > 0) {
+      console.log("Username already exists")
       return res.status(400).json({ error: "Username already exists" });
     }
 
@@ -112,6 +137,7 @@ function authenticateToken(req, res, next) {
     next(); // Call next to proceed to the next middleware or endpoint handler
   });
 }
+
 
 
 app.listen(port, () => {

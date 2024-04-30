@@ -1,12 +1,12 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%;
-  /* font-size: 62.5%; to make the default px to 10 from 16*/
-  }
+
+}
 
 *, *::before, *::after {
-    box-sizing: inherit;
-  }
+  box-sizing: inherit;
+}
 
 .displayAll {
   font-size: 3rem;
@@ -14,26 +14,23 @@ html {
   flex-direction: column;
   place-items: center;
   height: 100vh;
-  margin-top: 15vh;
+  padding-top: 15vh;
+ 
 }
 
-/* App.css */
-
 /* Apply styles to the form */
-/* .input-group {
+.input-group {
   margin-top: 2rem;
-} */
+}
 
 /* Style input fields */
 .input-group input {
   width: 100%;
   padding: 1rem;
-  /* margin-bottom: 1rem; */
   font-size: inherit;
   border: 1px solid #ccc;
   border-radius: 5px;
   transition: border-color 0.3s ease;
-  margin-top: 0;
 }
 
 .input-group label {

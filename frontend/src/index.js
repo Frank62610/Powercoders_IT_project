@@ -9,6 +9,7 @@ import reportWebVitals from './reportWebVitals';
 // import Frontpage from './Frontpage.js';
 import { Chart } from './stock chart/chart.js';
 import { GenQuiz } from './Quiz/quiz.js';
+import Shop from './shop/shop.js';
 
 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet"></link>
@@ -24,6 +25,7 @@ root.render(
         {/* <Route path="/frontpage" element={<Frontpage />} /> */}
         <Route path="/chart" element={<Chart />} />
         <Route path="/quiz" element={<GenQuiz />} />
+        <Route path="/shop" element={<Shop />} />
       </Routes>
     </RouterProvider>
     

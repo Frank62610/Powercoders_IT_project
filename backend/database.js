@@ -34,6 +34,18 @@ export async function getCred(username, password) {
   }
 }
 
+export async function checkCred(username) {
+  try{
+    const [result] = await pool.query('SELECT * FROM cred WHERE username = ?', 
+      [username]);
+      return result;
+  } catch (error) {
+    console.error('Error checking credential:', error);
+    throw new Error('Database error');
+  }
+}
+
+
 export async function createUser(username, password) {
   try {
     const [result] = await pool.query(
@@ -43,6 +55,29 @@ export async function createUser(username, password) {
     return result.insertId;
   } catch (error) {
     console.error('Error creating user:', error);
+    throw new Error('Database error');
+  }
+}
+
+
+export async function checkProducts() {
+  try{
+    const [products] = await pool.query('SELECT * FROM products')
+    return products
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    throw new Error('Database error');
+  }
+}
+
+
+export async function sortProducts(rating) {
+  try{
+    const [products] = await pool.query(`SELECT * FROM products WHERE stars >= '${rating}'`)
+    console.log(products)
+    return products
+  } catch (error) {
+    console.error('Error fetching products:', error);
     throw new Error('Database error');
   }
 }

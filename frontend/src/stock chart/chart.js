@@ -13,7 +13,8 @@ export function Chart(){
 
     useEffect(function (){
         try {
-            let url = `https://www.alphavantage.co/query?function=${option}&symbol=${symbol}&interval=60min&apikey=HGJWFG4N8AQ66ICD`
+            // let url = `https://www.alphavantage.co/query?function=${option}&symbol=${symbol}&interval=60min&apikey=HGJWFG4N8AQ66ICD`
+            let url = `https://www.alphavantage.co/query?function=${option}&symbol=${symbol}&interval=60min&apikey=GQ5LJWWQEK24SZE7`
             console.log(url)
     
             console.log(option === options[2] ? "Weekly Time Series" 
