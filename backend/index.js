@@ -1,7 +1,7 @@
 // backend/index.js
 import express from 'express';
 import cors from 'cors';
-import bodyParser from 'body-parser';
+// import bodyParser from 'body-parser';
 import jwt from 'jsonwebtoken';
 import { getCred, createUser, checkCred, checkProducts, sortProducts } from './database.js';
 import path from 'path'
@@ -19,8 +19,8 @@ const port = 8080;
 // app.use for middleware
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, './Powercoders2024_Frankho')));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false })); // configuring express.js
+app.use(express.json());
+app.use(express.urlencoded({ extended: false })); // configuring express.js
 
 const corsOptions = {
   origin: '*',
@@ -128,7 +128,7 @@ app.get("/quiz", authenticateToken, (req, res, next) => {
 
 
 function authenticateToken(req, res, next) {
-  const token = req.cookies.Token; // Assuming the token is stored in a cookie named "Token"
+  const token = req.cookies.Token; //  the token is stored in a cookie named "Token"
   if (!token) return res.sendStatus(401);
   console.log(token)
   jwt.verify(token, JWT_SECRET, (err, user) => {

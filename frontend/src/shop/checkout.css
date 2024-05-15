@@ -1,0 +1,34 @@
+.checkout{
+    display: flex;
+    flex-direction: column;
+    font-size: 3rem;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    text-align: center;
+    font-family: 'Arial', sans-serif; /* Example of a better font */
+    background-color: #f4f4f4; /* Example of a light background color */
+    padding: 20px; /* Optional: Add padding to the content */
+    border-radius: 10px; /* Optional: Add rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow */
+}
+
+.productSection{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    place-items: center;
+    text-align: justify;
+    max-width: 100vw;
+    width: 60vw;
+}
+
+.product-image{
+    width: 10vw;
+    margin: 3rem;
+}
+
+.deletePackage {
+    width: 10vw;
+    margin-left: 20rem;;
+}

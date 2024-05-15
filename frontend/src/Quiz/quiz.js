@@ -40,7 +40,7 @@ export function GenQuiz(){
         // Function to get and decode the JWT token from cookies
         const decodeTokenFromCookie = () => {
             // Get the JWT token from cookies
-            let token = Cookies.get('Token');
+            let token = document.cookie;
             console.log("this is the token" , token)
             if (token) {
                 try {
@@ -51,6 +51,7 @@ export function GenQuiz(){
                     const { username } = decodedToken;
                     // Update the state with the username
                     setUsername(username);
+                    console.log(username)
                 } catch (error) {
                     console.error('Error decoding JWT token:', error);
                 }
@@ -122,6 +123,7 @@ export function GenQuiz(){
 
     return (
         <div className='mainDiv'>
+            <h2>{username}</h2>
             {!start ? <button onClick={toggleStart}
                 className='startQuiz'>Start the Quiz game!</button> 
                 : <>{allQuizBoxes}

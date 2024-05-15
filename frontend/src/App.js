@@ -30,6 +30,7 @@ function App() {
       console.log(data)
       if (response.ok) {
         // console.log(data)
+        document.cookie = data.token;
         sessionStorage.setItem('username', data.username);
         setMessage(data.username)
         window.location.href = 'http://localhost:8080/frontpage';
@@ -47,32 +48,6 @@ function App() {
     }
   };
 
-  // const toggleTheme = () => {
-  //   setTheme(theme === 'light' ? 'dark' : 'light');
-  // };
-  // const handleLogin = async () => {
-    
-  //   try {
-  //     console.log(username, "123123123", password)
-  //     const response = await axios.post('http://localhost:8080/login', {
-  //       username,
-  //       password
-  //     });
-
-  //     const data = response.data;
-  //     setMessage(data.message);
-
-  //     if (response.status === 200) {
-  //       localStorage.setItem('token', data.token);
-  //       history('/frontpage');
-  //     } else if (response.status === 404) {
-  //       console.log("User not found or incorrect credentials")
-  //       setMessage("User not found or incorrect credentials"); // Update the message state with the error message
-  //     } 
-  //   } catch (error) {
-  //     console.error('Error:', error);
-  //   }
-  // };
 
   return (
     <main className='displayAll'>
