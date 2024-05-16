@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './shop.css';
 import {jwtDecode } from 'jwt-decode';
+import { FaStar } from 'react-icons/fa'
 const images = require.context('./images', true);
 
 
@@ -8,10 +9,17 @@ export function Shop() {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
     const [popup, setPopup] = useState('');
+    const [rating, setRating] = useState(null)
+    const [hover, setHover] = useState(null)
+    const [reviews, setReviews] = useState([])
+    const [comment, setComment] = useState('');
+
+
 
 
     const handleOpenPopup = (id) => {
         setPopup(id);
+        checkReviews(id)
     }
     const handleClosePopup = () => {
         setPopup('')
@@ -59,6 +67,50 @@ export function Shop() {
     let jwt = document.cookie;
     const decodedToken = jwtDecode(jwt);
     let username = decodedToken.username
+
+
+    async function checkReviews(id){
+        const params = {"id": id}
+        console.log("params:", params)
+        const url = `http://localhost:8080/api/v1/reviews?${new URLSearchParams(params).toString()}`
+        console.log("url:", url)
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            console.log("data",data);
+            setReviews(data)
+        } catch (error) {
+            // Handle any errors
+            console.error('Error fetching reviews:', error);
+        }
+    }
+
+    async function sendReviews(id, username, stars, review){
+        try {
+            const response = await fetch('http://localhost:8080/api/v1/reviews', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    id,
+                    username,
+                    stars,
+                    review
+                })
+            })
+            const data = await response.json();
+            console.log("input review data response:", data)
+            checkReviews(id);
+        }
+        catch (error) {
+            console.error('Error:', error);
+          }
+    }
+
+
+    
+
 
     async function handleSearch(input){
         const params = {"rating": input}
@@ -173,8 +225,47 @@ export function Shop() {
                                 onClick={(e) => {
                                      e.stopPropagation();
                                   }}>
-                            <img className="popup-image" src={images(product.image)} alt={product.name}/>
-                                <h2>{product.name}</h2>
+                                <img className="popup-image" src={images(product.image)} alt={product.name}/>
+                                <article className='popup-content'>
+                                    <h4>Users' Review</h4>
+                                    {reviews.length > 0 ? 
+                                        reviews.map((review, index) => <p key={index}>  {review.username}: {review.review} <br></br> rating:{Math.floor(review.stars)}/5</p> )
+                                     : <p>No reviews so far</p>}
+                                    <form className="reviewForm" onSubmit={(e) => {
+                                        e.preventDefault();
+                                        sendReviews(product.id, username, rating, comment);
+                                        
+                                    }}>
+                                        <label htmlFor="comment">Leave Comments</label>
+                                        <input
+                                            type='text'
+                                            id='comment'
+                                            required
+                                            placeholder='input your review for the product'
+                                            value={comment}
+                                            onChange={(e) => setComment(e.target.value)}
+                                        />
+                                        <button type="submit">Submit</button>
+                                    </form>
+                                </article>
+                                <h3 width="100%">{product.name}</h3>
+                                <p className="popup-rating">Your rating is: {rating}/5</p>
+                                {[...Array(5)].map((star, index) => {
+                                    const currentRating = index + 1;
+                                    return (
+                                        <label className='ratingInput' key={index}>
+                                            <input type='radio' name='rating' value={currentRating} 
+                                                onClick={() => setRating(currentRating)}/>
+                                            <FaStar className="stars" size={40} 
+                                                color={currentRating <= (hover || rating) ? "#ffc106" : "#e4e5e8"}  
+                                                onMouseEnter={() => setHover(currentRating)}
+                                                onMouseLeave={() => setHover(null)}
+                                                />
+                                        </label>
+                                    )
+                                })
+                                }
+
                             </div>
                         </div> 
                         }

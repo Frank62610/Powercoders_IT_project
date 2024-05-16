@@ -59,6 +59,33 @@ export async function createUser(username, password) {
   }
 }
 
+export async function createReview(id, username, stars, review){
+  try{
+    const [result] = await pool.query(
+      'INSERT INTO reviews (id, username, stars, review) VALUES (?, ?, ?, ?)',
+      [id, username, stars, review]
+    );
+    console.log(result)
+    return result.inserId;
+  } catch (error) {
+    console.error('Error inserting review:', error);
+    throw new Error('Database error');
+  }
+}
+
+export async function fetchReview(id) {
+  try{
+    const [result] = await pool.query(
+      `SELECT * FROM reviews where id = '${id}' `
+    )
+    console.log(result)
+    return result
+  } catch (error) {
+    console.error('Error fetching reviews:', error);
+    throw new Error('Database error');
+  }
+}
+
 
 export async function checkProducts() {
   try{

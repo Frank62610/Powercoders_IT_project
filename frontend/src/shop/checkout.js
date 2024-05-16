@@ -37,6 +37,11 @@ export function Checkout() {
     console.log(cart)
     console.log(products)
 
+    function deleteCart(id){
+        const newArray = cart.filter(item => item.id !== id);
+        setCart(newArray)
+    }
+
     // Calculate total cost and create rendering
     for (const element of cart) {
         for (const product of products) {
@@ -49,7 +54,9 @@ export function Checkout() {
                             Product Name: <strong>{product.name}</strong>  <br></br>
                             price: <strong>USD${product.priceCents * element.num / 100}</strong>
                         </p>
-                        <button className='deletePackage'>Delete</button>
+                        <button className='deletePackage' onClick={() => {deleteCart(element.id)}}>
+                            Delete
+                        </button>
                     </section>
                 );
                 totalCost += product.priceCents * element.num;

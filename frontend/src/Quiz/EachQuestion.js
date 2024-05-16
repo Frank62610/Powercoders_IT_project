@@ -53,7 +53,13 @@ export function EachQuestion(props){
             <label htmlFor={element} className={element} style={styles}>
                 {element
                     .replace(/&#039;/g, "'")
-                    .replace(/&quot;/g, '"')}
+                    .replace(/&quot;/g, '"')
+                    .replace(/&lt;/g, '<')
+                    .replace(/&gt;/g, '>')
+                    .replace(/&amp;/g, '&')
+
+                    
+                    }
             </label>
             <br />
         </div> 

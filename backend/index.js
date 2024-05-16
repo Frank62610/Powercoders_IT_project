@@ -3,7 +3,7 @@ import express from 'express';
 import cors from 'cors';
 // import bodyParser from 'body-parser';
 import jwt from 'jsonwebtoken';
-import { getCred, createUser, checkCred, checkProducts, sortProducts } from './database.js';
+import { getCred, createUser, checkCred, checkProducts, sortProducts, createReview, fetchReview } from './database.js';
 import path from 'path'
 import { fileURLToPath } from 'url';
 import cookieParser from 'cookie-parser';
@@ -30,8 +30,6 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 const JWT_SECRET = 'password123' //simple secret key is easy to brute-force;
-
-
 
 
 
@@ -97,6 +95,40 @@ app.post("/api/v1/users/register", async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 });
+
+app.post("/api/v1/reviews", async (req, res) => {
+  const {id, username, stars, review} = req.body;
+  console.log(req.body)
+  try {
+    await createReview(id, username, stars, review);
+    console.log(res);
+    res.status(201).json({ message: "Review insert successfully" });
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+app.get('/api/v1/reviews', async (req, res) => {
+  let id = req.query.id;
+  console.log(id)
+  let review;
+  review = await fetchReview(id) 
+  console.log(review)
+ try {
+  if (review){
+    res.json(review);
+    // console.log(res)
+        } else {
+          res.status(404).json({ error: "No review found" });
+        }}
+ catch (error) {
+  console.error('Error:', error);
+  res.status(500).json({ error: "Internal server error" });
+ }
+})
+
+
 
 app.get('^/$|/index(.html)?', (req, res) => {
   // res.sendFile(path.join(__dirname, './Powercoders2024_Frankho', 'index.html'))
